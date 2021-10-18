@@ -101,7 +101,7 @@ final class PersonalDataSelection
 	private function createZip(string $tempPath, string $exportPath): void
 	{
 		ignore_user_abort();
-		$zip = new \ZipArchive();
+		$zip = new \ZipArchive;
 		$zip->open($exportPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
 
 		/** @var \SplFileInfo[] $files */
@@ -116,6 +116,7 @@ final class PersonalDataSelection
 			}
 			// Get real and relative path for current file
 			$filePath = $file->getRealPath();
+			assert(is_string($filePath));
 			$relativePath = substr($filePath, strlen($tempPath) + 1);
 
 			// Add current file to archive
