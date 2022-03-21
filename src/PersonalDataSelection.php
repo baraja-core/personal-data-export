@@ -107,7 +107,7 @@ final class PersonalDataSelection
 		/** @var \SplFileInfo[] $files */
 		$files = new \RecursiveIteratorIterator(
 			new \RecursiveDirectoryIterator($tempPath),
-			\RecursiveIteratorIterator::LEAVES_ONLY
+			\RecursiveIteratorIterator::LEAVES_ONLY,
 		);
 
 		foreach ($files as $name => $file) {
